@@ -14,7 +14,7 @@
 
 			<!-- connexion JDBC -->
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/lolgouvernementhibernate" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/GestionHotel" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
 			<!-- création automatique du schéma -->
