@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +8,6 @@ import javax.persistence.EntityTransaction;
 
 import metier.Pays;
 import metier.Region;
-import metier.Ville;
 
 public class RegionDAO implements IRegionDAO{
 	EntityManagerFactory emf;
@@ -51,6 +49,7 @@ public class RegionDAO implements IRegionDAO{
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Object> getAll() {
 		return em.createQuery("select r from Region r order by r.nom asc").getResultList();
 	}
@@ -59,6 +58,7 @@ public class RegionDAO implements IRegionDAO{
 		return em.find(Region.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Object> getWhere(String whereClause) {
 		return em.createQuery("select r from Region r where "+ whereClause +" order by r.nom asc").getResultList();
 	}

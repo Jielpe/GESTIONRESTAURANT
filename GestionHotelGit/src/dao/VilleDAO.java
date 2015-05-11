@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -50,6 +49,7 @@ public class VilleDAO implements IVilleDAO{
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Object> getAll() {
 		return em.createQuery("select v from Ville v order by v.nom asc").getResultList();
 	}
@@ -58,6 +58,7 @@ public class VilleDAO implements IVilleDAO{
 		return em.find(Ville.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Object> getWhere(String whereClause) {
 		return em.createQuery("select v from Ville v where "+ whereClause +" order by v.nom asc").getResultList();
 	}

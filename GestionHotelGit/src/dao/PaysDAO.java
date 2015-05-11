@@ -86,6 +86,7 @@ public class PaysDAO implements IPaysDAO {
 	/**
 	 * Retourne le contenu de la table
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> getAll() {
 		
@@ -107,6 +108,7 @@ public class PaysDAO implements IPaysDAO {
 	 * @param whereClause La clause where
 	 * @return la liste de personnes
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> getWhere(String whereClause) {
 		return em.createQuery("select p from Pays p where "+ whereClause +" order by p.nom_pays asc").getResultList();
