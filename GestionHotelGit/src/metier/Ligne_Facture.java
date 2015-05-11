@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
-public class Ligne_Facture {
+public class Ligne_Facture { //nimp
 	@Id
 	@Column(name = "OPERATEUR_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -54,7 +54,7 @@ public class Client {
     private Operateur operateur;
 	
 	@OneToOne(mappedBy = "parrain", fetch=FetchType.LAZY) 
-    private Client parrain; 
+    private Client parrain; //
 	
 	@OneToMany(mappedBy = "client", cascade = {CascadeType.ALL})
 	private Set<Facture> factures = new HashSet <Facture>();
