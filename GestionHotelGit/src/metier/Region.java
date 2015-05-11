@@ -26,7 +26,7 @@ import javax.persistence.Version;
 public class Region{
 
 	@Id
-	@Column(name = "ID", nullable = false)
+	@Column(name = "REGION_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
@@ -34,7 +34,7 @@ public class Region{
 	@Version
 	private int version;
 
-	@Column(name = "NOM", length = 30, nullable = false, unique = true)
+	@Column(name = "NOM_REGION", length = 30, nullable = false, unique = true)
 	private String nom_region;
 	
 	@OneToMany(mappedBy = "region", cascade = { CascadeType.ALL }) 
@@ -57,7 +57,7 @@ public class Region{
 
 	// toString
 	public String toString() {
-		return String.format("[%d,%d,%s,%s]", getId(), getVersion(),
+		return String.format("[%s,%s]", 
 				getNom_region(), pays.toString());
 	}
 

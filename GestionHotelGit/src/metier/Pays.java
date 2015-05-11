@@ -31,7 +31,7 @@ public class Pays {
 	@Column(name = "NOM_PAYS", length = 30, nullable = false, unique = true)
 	private String nom_pays;
 	
-	@OneToMany(mappedBy = "Pays", cascade = {CascadeType.ALL})
+	@OneToMany(mappedBy = "pays", cascade = {CascadeType.ALL})
 	private Set<Region> regions = new HashSet <Region>();
 	
 	public Pays(){}
@@ -44,8 +44,7 @@ public class Pays {
 	
 	public String toString ()
 	{
-		return String.format("[%d,%d,%s]", getId(), getVersion(),
-				getNom_pays());
+		return String.format("[%s]", getNom_pays());
 	}
 
 	public Integer getId() {

@@ -27,7 +27,7 @@ import javax.persistence.Version;
 public class Ville{
 
 	@Id
-	@Column(name = "ID", nullable = false)
+	@Column(name = "VILLE_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
@@ -35,7 +35,7 @@ public class Ville{
 	@Version
 	private int version;
 
-	@Column(name = "NOM", length = 30, nullable = false, unique = true)
+	@Column(name = "NOM_VILLE", length = 30, nullable = false, unique = true)
 	private String nom_ville;
 	
 	@ManyToOne(fetch=FetchType.LAZY, cascade = { CascadeType.PERSIST })
@@ -61,8 +61,7 @@ public class Ville{
 
 	// toString
 	public String toString() {
-		return String.format("[%d,%d,%s,%s]", getId(), getVersion(),
-				getNom_ville(), region.toString());
+		return String.format("[%s,%s]", getNom_ville(), region.toString());
 	}
 
 	//ACCESSEURS
