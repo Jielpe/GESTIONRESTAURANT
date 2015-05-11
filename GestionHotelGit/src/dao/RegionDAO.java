@@ -1,13 +1,16 @@
 package dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import metier.Pays;
 import metier.Region;
+import metier.Ville;
 
 public class RegionDAO implements IRegionDAO{
 	EntityManagerFactory emf;
@@ -25,6 +28,13 @@ public class RegionDAO implements IRegionDAO{
 			instance = new VilleDAO();
 		}
 		return instance;
+	}
+	
+	public RegionDAO() {
+		emf = Persistence.createEntityManagerFactory("gestion_hotel");
+		em = emf.createEntityManager();
+		tx = em.getTransaction();
+		tx.begin();
 	}
 
 
@@ -49,24 +59,22 @@ public class RegionDAO implements IRegionDAO{
 		
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Object> getAll() {
-		return em.createQuery("select r from Region r order by r.nom asc").getResultList();
+		return em.createQuery("select r from Region r order by r.nom_region asc").getResultList();
 	}
 
 	public Object getFromId(int id) {
 		return em.find(Region.class, id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Object> getWhere(String whereClause) {
-		return em.createQuery("select r from Region r where "+ whereClause +" order by r.nom asc").getResultList();
+		return em.createQuery("select r from Region r where "+ whereClause +" order by r.nom_region asc").getResultList();
 	}
 
 	public String tableToString(){
 		StringBuffer result = new StringBuffer();
 		result.append("[ETAT DE LA TABLE REGION]\n");
-		for (Object p : em.createQuery("select r from Region r order by r.nom asc").getResultList()) {
+		for (Object p : em.createQuery("select r from Region r order by r.nom_region asc").getResultList()) {
 			result.append(p);
 			result.append("\n");
 		}

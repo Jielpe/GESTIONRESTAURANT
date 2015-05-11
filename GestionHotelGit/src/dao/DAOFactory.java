@@ -11,6 +11,7 @@ public class DAOFactory {
 			instance = new DAOFactory();
 		}
 		return instance;
+
 	}
 
 	// Selon le nom du dao entree en parametre, le dao voulu sera retourne
@@ -37,5 +38,4 @@ public class DAOFactory {
 		return dao;
 	}
 
-	//lkefhligdfqsgd
 }

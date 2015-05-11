@@ -5,9 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import metier.Region;
 import metier.Ville;
+
+
 
 public class VilleDAO implements IVilleDAO{
 	EntityManagerFactory emf;
@@ -25,6 +28,13 @@ public class VilleDAO implements IVilleDAO{
 			instance = new VilleDAO();
 		}
 		return instance;
+	}
+	
+	public VilleDAO() {
+		emf = Persistence.createEntityManagerFactory("gestion_hotel");
+		em = emf.createEntityManager();
+		tx = em.getTransaction();
+		tx.begin();
 	}
 
 
@@ -49,24 +59,22 @@ public class VilleDAO implements IVilleDAO{
 		
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Object> getAll() {
-		return em.createQuery("select v from Ville v order by v.nom asc").getResultList();
+		return em.createQuery("select v from Ville v order by v.nom_ville asc").getResultList();
 	}
 
 	public Object getFromId(int id) {
 		return em.find(Ville.class, id);
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Object> getWhere(String whereClause) {
-		return em.createQuery("select v from Ville v where "+ whereClause +" order by v.nom asc").getResultList();
+		return em.createQuery("select v from Ville v where "+ whereClause +" order by v.nom_ville asc").getResultList();
 	}
 	
 	public String tableToString(){
 		StringBuffer result = new StringBuffer();
 		result.append("[ETAT DE LA TABLE VILLE]\n");
-		for (Object p : em.createQuery("select v from Ville v order by v.nom asc").getResultList()) {
+		for (Object p : em.createQuery("select v from Ville v order by v.nom_ville asc").getResultList()) {
 			result.append(p);
 			result.append("\n");
 		}
