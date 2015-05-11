@@ -11,8 +11,6 @@ public class Exec {
 		DAOFactory df = DAOFactory.getInstance();
 		IDAO daopays=df.getDAO(DAO.Ville);
 		System.out.println(daopays.getFromId(11));
-		
-
 	}
 
 }
