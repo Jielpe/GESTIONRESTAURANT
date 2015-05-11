@@ -14,11 +14,11 @@
 
 			<!-- connexion JDBC -->
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/gestion_hotel" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/gestionhotel" />
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
 			<!-- création automatique du schéma -->
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
 			<!-- Dialecte -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<!-- propriétés DataSource c3p0 -->
