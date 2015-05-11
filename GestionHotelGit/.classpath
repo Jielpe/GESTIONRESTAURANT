@@ -37,4 +37,5 @@
 	<classpathentry kind="lib" path="C:/Workspace/hibernate-release-4.3.9.Final/lib/rhq-pluginAnnotations-3.0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Workspace/hibernate-release-4.3.9.Final/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
+	<!-- Test -->
 </classpath>
