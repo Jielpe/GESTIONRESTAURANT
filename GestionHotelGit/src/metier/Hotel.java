@@ -43,6 +43,7 @@ public class Hotel {
 		
 	}
 	
+	//kjg
 	public Hotel( String nom_hotel, Ville ville) {
 		super();
 		this.nom_hotel = nom_hotel;

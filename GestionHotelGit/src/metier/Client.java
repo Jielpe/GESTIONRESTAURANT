@@ -63,7 +63,7 @@ public class Client {
 	private Set<Reservation> reservations = new HashSet <Reservation>();
  
 	
-	
+	//ef
 	public Client(){}
 	
 	public Client(Integer id, int version, String nom_client,
