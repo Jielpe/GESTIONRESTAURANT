@@ -31,7 +31,7 @@ public class VilleDAO implements IVilleDAO{
 	}
 	
 	public VilleDAO() {
-		emf = Persistence.createEntityManagerFactory("gestion_hotel");
+		emf = Persistence.createEntityManagerFactory("gestionhotel");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();

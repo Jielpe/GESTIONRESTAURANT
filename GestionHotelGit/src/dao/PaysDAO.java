@@ -33,7 +33,7 @@ public class PaysDAO implements IPaysDAO {
 	 * Il initialise le contexte de persistance
 	 */
 	public PaysDAO() {
-		emf = Persistence.createEntityManagerFactory("gestion_hotel");
+		emf = Persistence.createEntityManagerFactory("gestionhotel");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();

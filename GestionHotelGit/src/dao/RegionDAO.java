@@ -31,7 +31,7 @@ public class RegionDAO implements IRegionDAO{
 	}
 	
 	public RegionDAO() {
-		emf = Persistence.createEntityManagerFactory("gestion_hotel");
+		emf = Persistence.createEntityManagerFactory("gestionhotel");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
