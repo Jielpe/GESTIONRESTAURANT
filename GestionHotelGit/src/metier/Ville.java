@@ -42,11 +42,11 @@ public class Ville{
     @JoinColumn(name = "region_id", nullable = false) 
     private Region region;
 	
-//	@OneToMany(mappedBy = "ville", cascade = { CascadeType.ALL }) 
-//    private Set<Hotel> hotels = new HashSet<Hotel>(); 
-//	
-//	@OneToMany(mappedBy = "ville", cascade = { CascadeType.ALL }) 
-//    private Set<Client> clients = new HashSet<Client>(); 
+	@OneToMany(mappedBy = "ville", cascade = { CascadeType.ALL }) 
+    private Set<Hotel> hotels = new HashSet<Hotel>(); 
+	
+	@OneToMany(mappedBy = "ville", cascade = { CascadeType.ALL }) 
+    private Set<Client> clients = new HashSet<Client>(); 
 
 
 

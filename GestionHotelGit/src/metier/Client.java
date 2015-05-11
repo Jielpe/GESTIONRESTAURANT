@@ -64,11 +64,24 @@ public class Client {
  
 	
 	
-	public Pays(){}
+	public Client(){}
 	
-	public Pays ( String pNom_pays )
-	{
+	public Client(Integer id, int version, String nom_client,
+			String prenom_client, String adresse_rue_client, String tel_client,
+			int age, Ville ville, Operateur operateur, Client parrain) {
+		super();
+		this.id = id;
+		this.version = version;
+		this.nom_client = nom_client;
+		this.prenom_client = prenom_client;
+		this.adresse_rue_client = adresse_rue_client;
+		this.tel_client = tel_client;
+		this.age = age;
+		this.ville = ville;
+		this.operateur = operateur;
+		this.parrain = parrain;
 	}
+
 	
 	public String toString ()
 	{

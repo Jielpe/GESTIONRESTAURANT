@@ -14,8 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
-public class Hotel {
-	
+public class Ligne_Facture {
 	@Id
 	@Column(name = "OPERATEUR_ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -98,9 +97,4 @@ public class Hotel {
 	public void addFacture(Facture facture){
 		factures.add(facture);
 	}
-	
-	
-	
-	
-
 }
