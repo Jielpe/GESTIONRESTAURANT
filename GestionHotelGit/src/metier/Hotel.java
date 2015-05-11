@@ -43,10 +43,8 @@ public class Hotel {
 		
 	}
 	
-	public Hotel(Integer id, int version, String nom_hotel, Ville ville) {
+	public Hotel( String nom_hotel, Ville ville) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.nom_hotel = nom_hotel;
 		this.ville = ville;
 	}
