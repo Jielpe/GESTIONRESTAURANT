@@ -12,10 +12,11 @@ public class Main {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"ApplicationContext.xml");
-		IEleve e1 = (IEleve) context.getBean("eleve");
-		System.out.println(e1);
-		EleveFactory ef = (EleveFactory) context.getBean("eleveFactory");
 		
+		EleveFactory ef = (EleveFactory) context.getBean("eleveFactory");
+		IEleve e1 = ef.getEleve();
+		e1.setNom("Doe");
+		System.out.println(e1);
 
 	}
 
