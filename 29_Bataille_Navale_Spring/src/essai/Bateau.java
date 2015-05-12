@@ -24,7 +24,7 @@ public class Bateau implements IBateau {
 	 */
 	@Override
 	public String toString() {
-		return String.format("[%d,%s,%d,%d", getNb_case(), getOrientation(), getPosX(), getPosY());
+		return String.format("[%d,%s,%d,%d]", getNb_case(), getOrientation(), getPosX(), getPosY());
 	}
 
 	/* (non-Javadoc)
