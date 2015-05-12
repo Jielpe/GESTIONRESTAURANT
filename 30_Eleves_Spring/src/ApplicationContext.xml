@@ -15,12 +15,12 @@
 		<constructor-arg name="note" value="10"/>
 	</bean>
 
-<!-- 	<bean id="eleveFactory" -->
-<!-- 		scope="prototype"	 -->
-<!-- 		class="metier.EleveFactory" -->
-<!-- 		factory-method="getEleve"> -->
-<!-- 		<constructor-arg ref="eleve" /> -->
-<!-- 	</bean> -->
+	<bean id="eleveFactory"
+		scope="prototype"	
+		class="metier.EleveFactory"
+		factory-method="getEleve">
+		<constructor-arg ref="eleve" />
+	</bean>
 	
 	
 
