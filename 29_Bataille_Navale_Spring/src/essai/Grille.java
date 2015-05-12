@@ -1,16 +1,19 @@
 package essai;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Grille implements IGrille {
 	
 	private int nb_colonnes;
 	private int nb_lignes;
-	private List<IBateau> lstBateau ;
+	private Set<IBateau> lstBateau = new HashSet<IBateau>();
+	private Set<Set<String>> grille = new HashSet<Set<String >>();
 	
 	public Grille() {}
 
-	public Grille(int nb_colonnes, int nb_lignes, List<IBateau> lstBateau) {
+	public Grille(int nb_colonnes, int nb_lignes, Set<IBateau> lstBateau) {
 		super();
 		this.nb_colonnes = nb_colonnes;
 		this.nb_lignes = nb_lignes;
@@ -64,7 +67,7 @@ public class Grille implements IGrille {
 	 * @see essai.IGrille#getLstBateau()
 	 */
 	@Override
-	public List<IBateau> getLstBateau() {
+	public Set<IBateau> getLstBateau() {
 		return lstBateau;
 	}
 
@@ -72,7 +75,7 @@ public class Grille implements IGrille {
 	 * @see essai.IGrille#setLstBateau(java.util.List)
 	 */
 	@Override
-	public void setLstBateau(List<IBateau> lstBateau) {
+	public void setLstBateau(Set<IBateau> lstBateau) {
 		this.lstBateau = lstBateau;
 	}
 	

@@ -12,14 +12,32 @@
 	<bean id="coquedenoix" class="essai.Bateau" scope="prototype">
 		<constructor-arg name="nb_case" value="1"/>
 		<constructor-arg name="orientation" value="VERTICALE"/>
-		<constructor-arg name="posX" value="1" />
-		<constructor-arg name="posY" value="1"/>
+		<constructor-arg name="ligne" value="1" />
+		<constructor-arg name="colonne" value="1"/>
 	</bean>
-
+	
+	<bean id="barque" class="essai.Bateau" scope="prototype">
+		<constructor-arg name="nb_case" value="2"/>
+		<constructor-arg name="orientation" value="VERTICALE"/>
+		<constructor-arg name="ligne" value="2" />
+		<constructor-arg name="colonne" value="1"/>
+	</bean>
+	
+	<bean id="b3" class="essai.Bateau" scope="prototype">
+		<constructor-arg name="nb_case" value="4" />
+		<constructor-arg name="orientation" value="VERTICALE"/>
+		<constructor-arg name="ligne" value="1" />
+		<constructor-arg name="colonne" value="2" />
+	</bean>
+	
+	<util:list id="lstBateaubean" >
+    	<ref bean="b3"/>
+	</util:list>
+	
 	<bean id="g1" class="essai.Grille">
-		<property name="nb_colonnes" value="1"/>
-		<property name="nb_lignes" value="1"/>
-<!-- 		<property name="proprio" ref="p1"/> -->
+		<property name="nb_colonnes" value="0"/>
+		<property name="nb_lignes" value="0"/>
+		<property name="lstBateau" ref="lstBateaubean"/>
 	</bean>
 
 </beans>

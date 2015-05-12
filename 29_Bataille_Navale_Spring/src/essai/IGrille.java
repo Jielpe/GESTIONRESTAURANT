@@ -1,6 +1,6 @@
 package essai;
 
-import java.util.List;
+import java.util.Set;
 
 public interface IGrille {
 
@@ -14,9 +14,9 @@ public interface IGrille {
 
 	public abstract void setNb_lignes(int nb_lignes);
 
-	public abstract List<IBateau> getLstBateau();
+	public abstract Set<IBateau> getLstBateau();
 
-	public abstract void setLstBateau(List<IBateau> lstBateau);
+	public abstract void setLstBateau(Set<IBateau> lstBateau);
 
 	public abstract void addBateau(IBateau pBateau);
 
