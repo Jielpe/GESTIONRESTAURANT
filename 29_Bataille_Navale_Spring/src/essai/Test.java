@@ -14,6 +14,10 @@ public class Test {
 		
 		System.out.println(b);
 		
+		IGrille g = (IGrille) context.getBean("g1");
+		
+		System.out.println(g);
+		
 
 	}
 

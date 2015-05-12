@@ -16,10 +16,10 @@
 		<constructor-arg name="posY" value="1"/>
 	</bean>
 
-<!-- 	<bean id="g1" class="essai.Grille"> -->
-<!-- 		<property name="nom" value="Citroën"/> -->
-<!-- 		<property name="marque" value="2CH"/> -->
+	<bean id="g1" class="essai.Grille">
+		<property name="nb_colonnes" value="1"/>
+		<property name="nb_lignes" value="1"/>
 <!-- 		<property name="proprio" ref="p1"/> -->
-<!-- 	</bean> -->
+	</bean>
 
 </beans>
