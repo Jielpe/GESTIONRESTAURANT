@@ -9,12 +9,12 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<bean id="p1" class="essai.Personne" scope="prototype">
-		<constructor-arg name="nom" value="toto"/>
+	<bean id="p1" class="test.Personne" scope="prototype">
+		<constructor-arg name="nom" value="Boo"/>
 		<constructor-arg name="prenom" value="dddd"/>
 	</bean>
 
-	<bean id="v1" class="essai.Voiture">
+	<bean id="v1" class="test.Voiture">
 		<property name="nom" value="Citroën"/>
 		<property name="marque" value="2CH"/>
 		<property name="proprio" ref="p1"/>
