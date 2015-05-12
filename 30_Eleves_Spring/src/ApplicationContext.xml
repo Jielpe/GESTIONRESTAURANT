@@ -19,7 +19,6 @@
 		scope="prototype"	
 		class="metier.EleveFactory"
 		factory-method="getEleve">
-		<constructor-arg ref="eleve" />
 	</bean>
 	
 	

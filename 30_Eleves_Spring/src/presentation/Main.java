@@ -14,7 +14,7 @@ public class Main {
 				"ApplicationContext.xml");
 		IEleve e1 = (IEleve) context.getBean("eleve");
 		System.out.println(e1);
-//		EleveFactory ef = (EleveFactory) context.getBean("eleveFactory");
+		EleveFactory ef = (EleveFactory) context.getBean("eleveFactory");
 		
 
 	}
