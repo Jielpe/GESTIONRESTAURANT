@@ -1,9 +1,11 @@
 package exec;
 
+import metier.ICalculette;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import util.Util;
+import util.IUtil;
 
 public class Exec {
 	private static ApplicationContext context ;
@@ -11,11 +13,12 @@ public class Exec {
 	public static void main(String[] args) {
 		context = new ClassPathXmlApplicationContext(
 				"ApplicationContext.xml");
-		Util classutil = (Util) context.getBean("util");
+		IUtil classutil = (IUtil) context.getBean("util");
+		ICalculette calc = (ICalculette) context.getBean("calc");
 		
 		double a = classutil.getDouble("Entrez votre première valeur : ");
 		double b = classutil.getDouble("Entrez votre deuxième valeur : ");
-		System.out.println(classutil.addition(a, b));
+		classutil.prompt(a+" + "+b+" = "+calc.addition(a, b));
 	}
 
 }

@@ -2,26 +2,24 @@ package util;
 
 import java.util.Scanner;
 
-public class Util {
+public class Util implements IUtil {
 	private static Scanner input = new Scanner(System.in);
 
-	/**
-	 * Method which return the answer of the user to the question given in parameter
-	 * @param pPrompt : the question (String)
-	 * @return : the answer (String)
+	/* (non-Javadoc)
+	 * @see util.IUtil#getString(java.lang.String)
 	 */
-	public static String getString(String pPrompt) 
+	@Override
+	public String getString(String pPrompt) 
 	{
 		System.out.println(pPrompt + "");
 		return input.nextLine();
 	}
 
-	/**
-	 * Method which return the answer of the user to the question given in parameter
-	 * @param pPrompt : the question (String)
-	 * @return : the answer (int)
+	/* (non-Javadoc)
+	 * @see util.IUtil#getInt(java.lang.String)
 	 */
-	public static int getInt(String pPrompt) 
+	@Override
+	public int getInt(String pPrompt) 
 	{
 		System.out.print(pPrompt + " ");
 		int entier = input.nextInt();
@@ -29,22 +27,20 @@ public class Util {
 		return entier;
 	}
 	
-	/**
-	 * Method which return the answer of the user to the question given in parameter
-	 * @param pPrompt : the question (String)
-	 * @return : the answer (char)
+	/* (non-Javadoc)
+	 * @see util.IUtil#getChar(java.lang.String)
 	 */
-	public static char getChar(String pPrompt)
+	@Override
+	public char getChar(String pPrompt)
 	{
 		System.out.print(pPrompt + " ");
 		return input.nextLine().charAt(0);
 	}
 	
-	/**
-	 * Method which retrun the answer of the user to the question given in parameter
-	 * @param pPrompt : the question (String)
-	 * @return : the answer (double)
+	/* (non-Javadoc)
+	 * @see util.IUtil#getDouble(java.lang.String)
 	 */
+	@Override
 	public double getDouble (String pPrompt)
 	{
 		System.out.println(pPrompt+" ");
@@ -53,47 +49,12 @@ public class Util {
 		return d;
 	}
 	
-	/**
-	 * Methode d'addition
-	 * @param a Float
-	 * @param b Float
-	 * @return a+b Float
+	/* (non-Javadoc)
+	 * @see util.IUtil#prompt(java.lang.String)
 	 */
-	public double addition( double a, double b )
+	@Override
+	public void prompt(Object pPrompt)
 	{
-		return a+b;
-	}
-	
-	/**
-	 * Methode de soustraction
-	 * @param a Float
-	 * @param b Float
-	 * @return a-b Float
-	 */
-	public static double soustraction( double a, double b )
-	{
-		return a-b;
-	}
-	
-	/**
-	 * Methode de multiplication
-	 * @param a Float
-	 * @param b Float
-	 * @return a*b Float
-	 */
-	public static double multiplication( double a, double b )
-	{
-		return a*b;
-	}
-	
-	/**
-	 * Methode de division
-	 * @param a Float
-	 * @param b Float
-	 * @return a/b Float
-	 */
-	public static double division( double a, double b )
-	{
-		return a/b;
+		System.out.println(pPrompt);
 	}
 }

@@ -9,9 +9,14 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	
+	<aop:aspectj-autoproxy>
+        <aop:include name="myLogger"/>
+    </aop:aspectj-autoproxy>
+
+    <bean id="myLogger" class="aspect.MyLogger"/>
 
 	<bean id="util"	class="util.Util" />
+	<bean id="calc" class="metier.Calculette"/>
 	<bean id="exec"	class="exec.Exec" />
 	
 	
