@@ -6,7 +6,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 
 public class MyTester {
 	
-	public void testMethodEntry(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+	public Object testMethodEntry(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		
 		IChat ichat = (IChat) proceedingJoinPoint.getTarget();	
 		System.out.println("Chat [lstMessages=" + ichat.getLstMessages() + "]");
@@ -14,7 +14,7 @@ public class MyTester {
 		{
 			System.err.println("List de message > 10");
 		}
-		
+		return proceedingJoinPoint.proceed();
 	
 		
 	}
