@@ -9,11 +9,17 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<aop:aspectj-autoproxy>
-        <aop:include name="myLogger"/>
-    </aop:aspectj-autoproxy>
+<!--	Debut de la configuration AOP -->	
+	<aop:config>
+		<aop:pointcut id="servicePointcut"  expression="execution(* *.*(..))"/>    		
+		<aop:aspect id="loggingAspect" ref="myLogger">
+		    <aop:before method="logMethodEntry"  pointcut-ref="servicePointcut"/>    		
+		    <aop:after-returning method="logMethodExit" returning="result" pointcut-ref="servicePointcut"/>
+	    </aop:aspect>	    
+	</aop:config>
 
-    <bean id="myLogger" class="aspect.MyLogger"/>
+  	<bean id="myLogger" class="aspect.MyLogger"/>    
+	<!--	Fin de la configuration AOP -->	
 
 	<bean id="util"	class="util.Util" />
 	<bean id="calc" class="metier.Calculette"/>
