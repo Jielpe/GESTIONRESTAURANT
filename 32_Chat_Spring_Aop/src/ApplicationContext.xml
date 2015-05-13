@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--	Debut de la configuration AOP -->	
+	<aop:config>
+		<aop:pointcut id="servicePointcut"  expression="execution(* *.*(..))"/>    		
+		<aop:aspect id="loggingAspect" ref="myLogger">
+		    <aop:before method="logMethodEntry"  pointcut-ref="servicePointcut"/>    		
+		    <aop:after-returning method="logMethodExit" returning="result" pointcut-ref="servicePointcut"/>
+	    </aop:aspect>	    
+	</aop:config>
+
+  	<bean id="myLogger" class="aspect.MyLogger"/>    
+	<!--	Fin de la configuration AOP -->	
+
+	<bean id="util"	class="util.Util" />
+	<bean id="calc" class="metier.Calculette"/>
+	<bean id="exec"	class="exec.Exec" />
+	
+	
+
+</beans>
