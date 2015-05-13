@@ -21,9 +21,9 @@
   	<bean id="myLogger" class="aspect.MyLogger"/>    
 	<!--	Fin de la configuration AOP -->	
 
-	<bean id="util"	class="util.Util" />
-	<bean id="calc" class="metier.Calculette"/>
-	<bean id="exec"	class="exec.Exec" />
+	
+
+	<bean id="chat"	class="metier.Chat" />
 	
 	
 
