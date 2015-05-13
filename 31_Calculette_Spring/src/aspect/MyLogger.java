@@ -3,13 +3,10 @@ package aspect;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.JoinPoint.StaticPart;
 
-
-
-
 public class MyLogger {
 
 	// Cette méthode est appelée à chaque fois (et avant) qu'une méthode du
-	// package ew.service est interceptée
+	// package  est interceptée
 	public void logMethodEntry(JoinPoint joinPoint) {
 
 		Object[] args = joinPoint.getArgs();
@@ -30,7 +27,7 @@ public class MyLogger {
 	}
 
 	// Cette méthode est appelée à chaque fois (et après) qu'une méthode du
-	// package ew.service est interceptée
+	// package  est interceptée
 	// Elle reçoit en argument 'result' qui est le retour de la méthode
 	// interceptée
 	public void logMethodExit(StaticPart staticPart, Object result) {
