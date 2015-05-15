@@ -102,9 +102,7 @@ public class DAO implements IDAO {
 	// Remove Object
 	public void remove(IMessage pM) {
 		em.remove(pM);
-		System.out
-				.println(pM
-						+ " : remove from persistance domain. You still need to commit (endTx()) to update your database.");
+		System.out.println(pM + " : remove from persistance domain.");
 	}
 
 	// Select and prompt in console all objects inside the table
