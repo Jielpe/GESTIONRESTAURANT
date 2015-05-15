@@ -9,9 +9,9 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<bean id="chat" class="metier.Chat" scope="singleton"></bean>
+	<bean id="chat" class="metier.Chat" ></bean>
 	<bean id="message" class="metier.Message" scope="prototype"></bean>	
-	<bean id="dao" class="dao.DAO" scope="singleton"></bean>	
+	<bean id="dao" class="dao.DAO" ></bean>	
 	
 
 
