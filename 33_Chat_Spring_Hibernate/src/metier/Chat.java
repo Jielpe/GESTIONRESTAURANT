@@ -12,23 +12,19 @@ import dao.IDAO;
 
 public class Chat implements IChat {
 	private ArrayList<IMessage> lstMessages = new ArrayList<IMessage>();
-	ApplicationContext context;
 	IDAO idao;
 	
 	
 	
 	public Chat() {
 		super();
-		this.context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-		this.idao = (IDAO)context.getBean("dao");
+			
 	}
 
 	
 	public Chat(ArrayList<IMessage> lstMessages) {
 		super();
 		this.lstMessages = lstMessages;
-		this.context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-		this.idao = (IDAO)context.getBean("dao");
 	}
 
 
@@ -38,7 +34,8 @@ public class Chat implements IChat {
 	@Override
 	public void addMessage(IMessage message){
 		lstMessages.add(message);
-		
+		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+		this.idao = (IDAO)context.getBean("dao");
 		idao.startTx();
 		idao.insert(message);
 		idao.endTx();
@@ -68,6 +65,7 @@ public class Chat implements IChat {
 	@Override
 	public String toString(){
 		String result = "";
+		getLstMessagesFromDB();
 		for (IMessage current : getLstMessages()){
 			result = result + current.getTxtMessage()+"\n";
 		}
