@@ -98,22 +98,22 @@ public class DAO implements IDAO {
 		em.persist(pMessage);
 		System.out.println(pMessage + " : saved into persistance domain. ");
 	}
-	
+
 	// Remove Object
-		public void remove(IMessage pM) {
-			em.remove(pM);
-			System.out
-					.println(pM
-							+ " : remove from persistance domain. You still need to commit (endTx()) to update your database.");
-		}
+	public void remove(IMessage pM) {
+		em.remove(pM);
+		System.out
+				.println(pM
+						+ " : remove from persistance domain. You still need to commit (endTx()) to update your database.");
+	}
 
 	// Select and prompt in console all objects inside the table
 	public ArrayList<IMessage> selectAll() {
-		ArrayList<IMessage> lstMessage = new ArrayList<IMessage>(); 
+		ArrayList<IMessage> lstMessage = new ArrayList<IMessage>();
 		System.out.println("[" + CLASS_NAME + "]");
 		for (Object s : em.createQuery("select f from " + CLASS_NAME + " f")
 				.getResultList()) {
-			lstMessage.add((IMessage)s);
+			lstMessage.add((IMessage) s);
 		}
 		return lstMessage;
 	}
