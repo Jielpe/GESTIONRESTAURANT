@@ -12,6 +12,7 @@ public class MyLogger {
 
 			// Nom de la méthode interceptée
 			String name = joinPoint.getSignature().toLongString();
+//			String name2 = joinPoint.getThis().
 			StringBuffer sb = new StringBuffer(name + " called with: [");
 
 			// Liste des valeurs des arguments reçus par la méthode
@@ -33,6 +34,7 @@ public class MyLogger {
 
 			// Nom de la méthode interceptée
 			String name = staticPart.getSignature().toLongString();
+//			String name2 = staticPart.getClass().
 
 			System.out.println(name + " returning: [" + result + "]");
 		}
