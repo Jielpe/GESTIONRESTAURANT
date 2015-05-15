@@ -1,7 +1,8 @@
 package dao;
 
-import metier.IMessage;
+import java.util.ArrayList;
 
+import metier.IMessage;
 
 public interface IDAO {
 
@@ -17,4 +18,12 @@ public interface IDAO {
 	// Save Object
 	public abstract void insert(IMessage pMessage);
 
+	// remove Object
+	public abstract void remove(IMessage pM);
+
+	// Reset DB
+	public abstract void resetDB();
+
+	// Select and prompt in console all objects inside the table
+	public ArrayList<IMessage> selectAll();
 }

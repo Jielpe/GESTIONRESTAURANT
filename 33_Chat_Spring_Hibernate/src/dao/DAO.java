@@ -1,14 +1,12 @@
 package dao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import personne.hibernate.Personne;
 import metier.IMessage;
 
 public class DAO implements IDAO {
@@ -35,6 +33,7 @@ public class DAO implements IDAO {
 	// début transaction
 	private static EntityTransaction tx = em.getTransaction();
 
+	@Override
 	public void resetDB() {
 		System.out.println("Reseting...");
 
@@ -99,13 +98,16 @@ public class DAO implements IDAO {
 		System.out.println(pMessage + " : saved into persistance domain. ");
 	}
 
+	
 	// Remove Object
+	@Override
 	public void remove(IMessage pM) {
 		em.remove(pM);
 		System.out.println(pM + " : remove from persistance domain.");
 	}
 
 	// Select and prompt in console all objects inside the table
+	@Override
 	public ArrayList<IMessage> selectAll() {
 		ArrayList<IMessage> lstMessage = new ArrayList<IMessage>();
 		System.out.println("[" + CLASS_NAME + "]");
