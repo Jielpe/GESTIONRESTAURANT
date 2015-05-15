@@ -85,14 +85,8 @@ public class DAO implements IDAO {
 	 */
 	@Override
 	public void insert(IMessage pMessage) {
-		
-		startTx();
 		em.persist(pMessage);
 		System.out.println(pMessage + " : saved into persistance domain. ");
-		endTx();
-		prompt();
-		closeAll();
-		
 	}
 
 	 // Select and prompt in console all objects inside the table

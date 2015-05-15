@@ -35,7 +35,7 @@ public class Presentation {
 			rep = Character.toUpperCase(util
 					.getChar("Voulez-vous envoyer un autre message ? (O/N)"));
 		}
-		
+		// Fermer la transaction
 		System.out.println("Merci, à bientôt !");
 
 		
