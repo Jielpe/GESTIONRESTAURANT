@@ -1,5 +1,8 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -7,16 +10,14 @@ import javax.persistence.Persistence;
 
 import metier.IMessage;
 
-
-
 public class DAO implements IDAO {
 
 	// Design pattern Singleton
 	private static IDAO instance;
-	
+
 	private static String TABLE_NAME = "messages";
-	
-	private static String CLASS_NAME =  "Message";
+
+	private static String CLASS_NAME = "Message";
 
 	public static IDAO getInstance() {
 		if (null == instance) {
@@ -33,19 +34,21 @@ public class DAO implements IDAO {
 	// début transaction
 	private static EntityTransaction tx = em.getTransaction();
 
-	 public void resetDB() {
-	 System.out.println("Reseting...");
-	
-	 tx.begin();
-	 // supprimer les éléments de la table formationhibernatetest01_formation
-	 em.createNativeQuery("delete from "+TABLE_NAME).executeUpdate();
-	 // fin transaction
-	 tx.commit();
-	 System.out.println("Table Cleared.");
-	 }
+	public void resetDB() {
+		System.out.println("Reseting...");
+
+		tx.begin();
+		// supprimer les éléments de la table formationhibernatetest01_formation
+		em.createNativeQuery("delete from " + TABLE_NAME).executeUpdate();
+		// fin transaction
+		tx.commit();
+		System.out.println("Table Cleared.");
+	}
 
 	// Start commit
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see dao.IDAO#startTx()
 	 */
 	@Override
@@ -55,7 +58,9 @@ public class DAO implements IDAO {
 	}
 
 	// End commit
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see dao.IDAO#endTx()
 	 */
 	@Override
@@ -65,7 +70,9 @@ public class DAO implements IDAO {
 	}
 
 	// End all
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see dao.IDAO#closeAll()
 	 */
 	@Override
@@ -80,7 +87,9 @@ public class DAO implements IDAO {
 	}
 
 	// Save Object
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see dao.IDAO#insert(org.aspectj.bridge.IMessage)
 	 */
 	@Override
@@ -89,14 +98,14 @@ public class DAO implements IDAO {
 		System.out.println(pMessage + " : saved into persistance domain. ");
 	}
 
-	 // Select and prompt in console all objects inside the table
-	 public void prompt() {
-	 System.out.println("[" + CLASS_NAME + "]");
-	 for (Object s : em.createQuery(
-	 // "select p from personne p order by p.nom " + pOrder)
-	 "select f from " + CLASS_NAME +" f")
-	 .getResultList()) {
-	 System.out.println(s);
-	 }
-	 }
+	// Select and prompt in console all objects inside the table
+	public List<IMessage> selectAll() {
+		List<IMessage> lstMessage = new ArrayList<IMessage>(); 
+		System.out.println("[" + CLASS_NAME + "]");
+		for (Object s : em.createQuery("select f from " + CLASS_NAME + " f")
+				.getResultList()) {
+			lstMessage.add((IMessage)s);
+		}
+		return lstMessage;
+	}
 }
