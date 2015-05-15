@@ -16,5 +16,8 @@ public interface IChat {
 	public abstract ArrayList<IMessage> getLstMessages();
 
 	public abstract void setLstMessages(ArrayList<IMessage> lstMessages);
+	
+	public void getLstMessagesFromDB();
+
 
 }
