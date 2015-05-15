@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import personne.hibernate.Personne;
 import metier.IMessage;
 
 public class DAO implements IDAO {
@@ -97,6 +98,14 @@ public class DAO implements IDAO {
 		em.persist(pMessage);
 		System.out.println(pMessage + " : saved into persistance domain. ");
 	}
+	
+	// Remove Object
+		public void remove(IMessage pM) {
+			em.remove(pM);
+			System.out
+					.println(pM
+							+ " : remove from persistance domain. You still need to commit (endTx()) to update your database.");
+		}
 
 	// Select and prompt in console all objects inside the table
 	public ArrayList<IMessage> selectAll() {
