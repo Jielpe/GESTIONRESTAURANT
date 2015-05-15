@@ -91,6 +91,7 @@ public class DAO implements IDAO {
 		System.out.println(pMessage + " : saved into persistance domain. ");
 		endTx();
 		prompt();
+		closeAll();
 		
 	}
 

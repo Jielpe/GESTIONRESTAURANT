@@ -15,13 +15,14 @@ public class Presentation {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"ApplicationContext.xml");
 
-		IChat c = (IChat) context.getBean("chat");
-		IMessage m = (IMessage) context.getBean("message");
+		
 		methodeUtil util = (methodeUtil) methodeUtil.getInstance();
 		char rep = Character
 				.toUpperCase(util
-						.getChar("Commencer à chatter avec des jolies inconnues ? (O/N)"));
+						.getChar("Commencer à chatter avec des joli(e)s inconnu(e)s ? (O/N)"));
 		while (rep == 'O') {
+			IChat c = (IChat) context.getBean("chat");
+			IMessage m = (IMessage) context.getBean("message");
 			System.out.println("** Message **");
 			try {
 				m.setAll(util.getDate("Date ? (jj/mm/aaaa)"),
@@ -34,6 +35,8 @@ public class Presentation {
 			rep = Character.toUpperCase(util
 					.getChar("Voulez-vous envoyer un autre message ? (O/N)"));
 		}
+		
+		System.out.println("Merci, à bientôt !");
 
 		
 
