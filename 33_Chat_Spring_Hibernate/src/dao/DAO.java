@@ -99,8 +99,8 @@ public class DAO implements IDAO {
 	}
 
 	// Select and prompt in console all objects inside the table
-	public List<IMessage> selectAll() {
-		List<IMessage> lstMessage = new ArrayList<IMessage>(); 
+	public ArrayList<IMessage> selectAll() {
+		ArrayList<IMessage> lstMessage = new ArrayList<IMessage>(); 
 		System.out.println("[" + CLASS_NAME + "]");
 		for (Object s : em.createQuery("select f from " + CLASS_NAME + " f")
 				.getResultList()) {
