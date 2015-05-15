@@ -55,8 +55,9 @@ public class Chat implements IChat {
 	 */
 	@Override
 	public void clear(){
+		idao.startTx();
 		idao.resetDB();
-		
+		idao.endTx();
 	}
 	
 	
@@ -81,14 +82,18 @@ public class Chat implements IChat {
 	public void purge(Date date){
 		for (IMessage current : getLstMessages()){
 			if ((current.getDateMessage()).before(date)){
+				idao.startTx();
 				idao.remove(current);
+				idao.endTx();
 			}
 		}
 		
 	}
 	
 	public void getLstMessagesFromDB(){
+		idao.startTx();
 		this.lstMessages=idao.selectAll();
+		idao.endTx();
 	}
 
 
