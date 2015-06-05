@@ -32,9 +32,8 @@ public class Assiette implements IAssiette {
 		super();
 	}
 
-	public Assiette(String id, String nom, float prix, Type type) {
+	public Assiette(String nom, float prix, Type type) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.prix = prix;
 		this.type = type;

@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import metier.Assiette;
+import metier.Type;
 
 public class AssietteDAO implements IAssietteDAO {
 
@@ -43,8 +44,8 @@ public class AssietteDAO implements IAssietteDAO {
 	/**
 	 * Créer une instance d'Assiette et l'ajoute au contexte de persistance
 	 */
-	public Assiette getAssiette(Type type, String nom, float prix) {
-		Assiette a = new Assiette(Type type, String nom, float prix);
+	public Assiette getAssiette(String nom, float prix, Type type) {
+		Assiette a = new Assiette(nom, prix, type);
 		em.persist(a);
 		return a;
 		

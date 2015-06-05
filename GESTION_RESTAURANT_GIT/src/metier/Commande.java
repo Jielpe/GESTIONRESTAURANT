@@ -24,9 +24,6 @@ public class Commande implements ICommande {
 	@Column(name = "PRIX")
 	protected float prix;
 
-	@Column(name = "TYPE")
-	protected Type type;
-
 	@ManyToMany(cascade = { CascadeType.PERSIST })
 	@JoinTable(name = "commande_assiette", joinColumns = @JoinColumn(name = "IDCOMMANDE"), inverseJoinColumns = @JoinColumn(name = "IDASSIETTE"))
 	private Set<Assiette> lstAssiette = new HashSet<Assiette>();
@@ -35,11 +32,9 @@ public class Commande implements ICommande {
 		super();
 	}
 
-	public Commande(String id, float prix, Type type) {
+	public Commande(Set<Assiette> lstAssiette) {
 		super();
-		this.id = id;
-		this.prix = prix;
-		this.type = type;
+		this.lstAssiette=lstAssiette;
 	}
 
 	/* (non-Javadoc)
@@ -49,7 +44,7 @@ public class Commande implements ICommande {
 	@Override
 	public String toString() {
 		return "Commande [id=" + id + ", lstAssiette=" + lstAssiette
-				+ ", prix=" + prix + ", type=" + type + "]";
+				+ ", prix=" + prix + "]";
 	}
 
 	protected float calculPrix() {
@@ -108,20 +103,6 @@ public class Commande implements ICommande {
 		this.prix = prix;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#getType()
-	 */
-	@Override
-	public Type getType() {
-		return type;
-	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#setType(metier.Type)
-	 */
-	@Override
-	public void setType(Type type) {
-		this.type = type;
-	}
 
 }

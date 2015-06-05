@@ -1,6 +1,8 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,7 +45,7 @@ public class CommandeDAO implements ICommandeDAO {
 	/**
 	 * Créer une instance de Commande et l'ajoute au contexte de persistance
 	 */
-	public Commande getCommande(ArrayList<Assiette>lstAssiette) {
+	public Commande getCommande(Set<Assiette> lstAssiette) {
 		Commande c = new Commande(lstAssiette);
 		em.persist(c);
 		return c;

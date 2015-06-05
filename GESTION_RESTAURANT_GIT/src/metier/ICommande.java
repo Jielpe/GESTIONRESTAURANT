@@ -18,8 +18,4 @@ public interface ICommande {
 
 	public abstract void setPrix(float prix);
 
-	public abstract Type getType();
-
-	public abstract void setType(Type type);
-
 }
