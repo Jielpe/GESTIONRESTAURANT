@@ -12,9 +12,9 @@ public interface IAssiette {
 
 	public abstract void setNom(String nom);
 
-	public abstract float getPrix();
+	public abstract double getPrix();
 
-	public abstract void setPrix(float prix);
+	public abstract void setPrix(double prix);
 
 	public abstract Type getType();
 

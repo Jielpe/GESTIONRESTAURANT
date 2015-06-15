@@ -11,7 +11,7 @@ public class Exec {
 		IDAO daoassiette=df.getDAO(DAO.Assiette);
 		
 		// On insère une nouvelle assiette dans la base
-		public Assiette assiette1 = daoassiette.getAssiette("carrottes rapees", 2.7, Type.entree);
+		Assiette assiette1 = daoassiette.getAssiette("carrottes rapees", 2.7, Type.entree);
 		daoassiette.commit();
 		
 		// On vérifie que l'assiette a bien été insérée dans la base

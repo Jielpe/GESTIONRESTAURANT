@@ -44,7 +44,7 @@ public class AssietteDAO implements IAssietteDAO {
 	/**
 	 * Créer une instance d'Assiette et l'ajoute au contexte de persistance
 	 */
-	public Assiette getAssiette(String nom, float prix, Type type) {
+	public Assiette getAssiette(String nom, double prix, Type type) {
 		Assiette a = new Assiette(nom, prix, type);
 		em.persist(a);
 		return a;

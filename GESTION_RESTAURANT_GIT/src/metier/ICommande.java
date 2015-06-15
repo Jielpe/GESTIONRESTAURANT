@@ -14,8 +14,8 @@ public interface ICommande {
 
 	public abstract void setLstAssiette(Set<Assiette> lstAssiette);
 
-	public abstract float getPrix();
+	public abstract double getPrix();
 
-	public abstract void setPrix(float prix);
+	public abstract void setPrix(double prix);
 
 }

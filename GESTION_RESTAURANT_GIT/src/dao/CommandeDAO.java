@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 
 import metier.Commande;
 import metier.Assiette;
+import metier.Type;
 
 public class CommandeDAO implements ICommandeDAO {
 
@@ -127,6 +128,12 @@ public class CommandeDAO implements ICommandeDAO {
 		}
 		
 		return result.toString();
+	}
+
+	@Override
+	public Assiette getAssiette(String string, double d, Type entree) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

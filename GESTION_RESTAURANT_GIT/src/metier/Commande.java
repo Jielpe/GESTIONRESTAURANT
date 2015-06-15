@@ -22,7 +22,7 @@ public class Commande implements ICommande {
 	private String id;
 
 	@Column(name = "PRIX")
-	protected float prix;
+	protected double prix;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST })
 	@JoinTable(name = "commande_assiette", joinColumns = @JoinColumn(name = "IDCOMMANDE"), inverseJoinColumns = @JoinColumn(name = "IDASSIETTE"))
@@ -47,8 +47,8 @@ public class Commande implements ICommande {
 				+ ", prix=" + prix + "]";
 	}
 
-	protected float calculPrix() {
-		float somme = 0;
+	protected double calculPrix() {
+		double somme = 0;
 		for (IAssiette current : lstAssiette) {
 			somme = somme + current.getPrix();
 		}
@@ -91,15 +91,15 @@ public class Commande implements ICommande {
 	 * @see metier.ICommande#getPrix()
 	 */
 	@Override
-	public float getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 
 	/* (non-Javadoc)
-	 * @see metier.ICommande#setPrix(float)
+	 * @see metier.ICommande#setPrix(double)
 	 */
 	@Override
-	public void setPrix(float prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 

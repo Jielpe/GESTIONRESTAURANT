@@ -20,7 +20,7 @@ public class Assiette implements IAssiette {
 	protected String nom;
 
 	@Column(name = "PRIX")
-	protected float prix;
+	protected double prix;
 
 	@Column(name = "TYPE")
 	protected Type type;
@@ -32,7 +32,7 @@ public class Assiette implements IAssiette {
 		super();
 	}
 
-	public Assiette(String nom, float prix, Type type) {
+	public Assiette(String nom, double prix, Type type) {
 		super();
 		this.nom = nom;
 		this.prix = prix;
@@ -97,17 +97,17 @@ public class Assiette implements IAssiette {
 	 * @see metier.IAssiette#getPrix()
 	 */
 	@Override
-	public float getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see metier.IAssiette#setPrix(float)
+	 * @see metier.IAssiette#setPrix(double)
 	 */
 	@Override
-	public void setPrix(float prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
