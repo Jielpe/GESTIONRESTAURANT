@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +17,10 @@ public class Exec {
 		IDAO daoassiette= df.getDAO(DAO.Assiette);
 		// On insère une nouvelle assiette dans la base
 		
-		HashSet lstAssiette = new HashSet<>();
-		lstAssiette.add((Assiette) daoassiette.getFromId(2));
+		ArrayList lstAssiette = new ArrayList<>();
+		lstAssiette.add((Assiette) daoassiette.getFromId(4));
+		lstAssiette.add((Assiette) daoassiette.getFromId(3));
+		lstAssiette.add((Assiette) daoassiette.getFromId(3));
 		Commande commande1 = ((ICommandeDAO) daocommande).getCommande(lstAssiette);
 		commande1.setPrix(commande1.calculPrix());
 		daoassiette.commit();

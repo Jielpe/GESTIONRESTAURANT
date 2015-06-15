@@ -46,7 +46,7 @@ public class CommandeDAO implements ICommandeDAO {
 	/**
 	 * Créer une instance de Commande et l'ajoute au contexte de persistance
 	 */
-	public Commande getCommande(Set<Assiette> lstAssiette) {
+	public Commande getCommande(List<Assiette> lstAssiette) {
 		Commande c = new Commande(lstAssiette);
 		em.persist(c);
 		return c;

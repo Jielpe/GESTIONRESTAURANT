@@ -1,6 +1,8 @@
 package metier;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -31,13 +33,13 @@ public class Commande implements ICommande {
 
 	@ManyToMany(cascade = { CascadeType.MERGE })
 	@JoinTable(name = "commande_assiette", joinColumns = @JoinColumn(name = "IDCOMMANDE"), inverseJoinColumns = @JoinColumn(name = "IDASSIETTE"))
-	private Set<Assiette> lstAssiette = new HashSet<Assiette>();
+	private List<Assiette> lstAssiette = new ArrayList<Assiette>();
 
 	public Commande() {
 		super();
 	}
 
-	public Commande(Set<Assiette> lstAssiette) {
+	public Commande(List<Assiette> lstAssiette) {
 		super();
 	
 		this.lstAssiette=lstAssiette;
@@ -82,7 +84,7 @@ public class Commande implements ICommande {
 	 * @see metier.ICommande#getLstAssiette()
 	 */
 	@Override
-	public Set<Assiette> getLstAssiette() {
+	public List<Assiette> getLstAssiette() {
 		return lstAssiette;
 	}
 
@@ -90,7 +92,7 @@ public class Commande implements ICommande {
 	 * @see metier.ICommande#setLstAssiette(java.util.Set)
 	 */
 	@Override
-	public void setLstAssiette(Set<Assiette> lstAssiette) {
+	public void setLstAssiette(List<Assiette> lstAssiette) {
 		this.lstAssiette = lstAssiette;
 	}
 

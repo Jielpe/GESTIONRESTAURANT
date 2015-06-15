@@ -1,5 +1,6 @@
 package metier;
 
+import java.util.List;
 import java.util.Set;
 
 public interface ICommande {
@@ -10,9 +11,9 @@ public interface ICommande {
 
 	public abstract void setId(Integer id);
 
-	public abstract Set<Assiette> getLstAssiette();
+	public abstract List<Assiette> getLstAssiette();
 
-	public abstract void setLstAssiette(Set<Assiette> lstAssiette);
+	public abstract void setLstAssiette(List<Assiette> lstAssiette);
 
 	public abstract double getPrix();
 
