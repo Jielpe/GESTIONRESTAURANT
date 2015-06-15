@@ -2,6 +2,7 @@ package dao;
 // test
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,6 +10,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import metier.Assiette;
+import metier.Commande;
 import metier.Type;
 
 public class AssietteDAO implements IAssietteDAO {
@@ -125,5 +127,6 @@ public class AssietteDAO implements IAssietteDAO {
 		
 		return result.toString();
 	}
+
 
 }

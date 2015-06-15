@@ -25,8 +25,11 @@ public class Commande implements ICommande {
 
 	@Column(name = "PRIX")
 	protected double prix;
+	
+	@Column(name = "STATUT")
+	protected Statut statut;
 
-	@ManyToMany(cascade = { CascadeType.PERSIST })
+	@ManyToMany(cascade = { CascadeType.MERGE })
 	@JoinTable(name = "commande_assiette", joinColumns = @JoinColumn(name = "IDCOMMANDE"), inverseJoinColumns = @JoinColumn(name = "IDASSIETTE"))
 	private Set<Assiette> lstAssiette = new HashSet<Assiette>();
 
@@ -36,7 +39,9 @@ public class Commande implements ICommande {
 
 	public Commande(Set<Assiette> lstAssiette) {
 		super();
+	
 		this.lstAssiette=lstAssiette;
+		this.statut=statut.commandée;
 	}
 
 	/* (non-Javadoc)
@@ -48,8 +53,8 @@ public class Commande implements ICommande {
 		return "Commande [id=" + id + ", lstAssiette=" + lstAssiette
 				+ ", prix=" + prix + "]";
 	}
-
-	protected double calculPrix() {
+	
+	public double calculPrix(){
 		double somme = 0;
 		for (IAssiette current : lstAssiette) {
 			somme = somme + current.getPrix();
@@ -102,6 +107,7 @@ public class Commande implements ICommande {
 	 */
 	@Override
 	public void setPrix(double prix) {
+
 		this.prix = prix;
 	}
 

@@ -130,10 +130,5 @@ public class CommandeDAO implements ICommandeDAO {
 		return result.toString();
 	}
 
-	@Override
-	public Assiette getAssiette(String string, double d, Type entree) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }

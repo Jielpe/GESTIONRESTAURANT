@@ -1,21 +1,30 @@
 package dao;
 
-import metier.Assiette;
-import metier.Type;
+import java.util.HashSet;
+import java.util.Set;
 
+import metier.Assiette;
+import metier.Commande;
+import metier.Type;
 
 public class Exec {
 
 	public static void main(String[] args) {
+
 		DAOFactory df = DAOFactory.getInstance();
-		IDAO daoassiette=df.getDAO(DAO.Assiette);
-		
+		IDAO daocommande = df.getDAO(DAO.Commande);
+		IDAO daoassiette= df.getDAO(DAO.Assiette);
 		// On insère une nouvelle assiette dans la base
-		Assiette assiette1 = daoassiette.getAssiette("carrottes rapees", 2.7, Type.entree);
+		
+		HashSet lstAssiette = new HashSet<>();
+		lstAssiette.add((Assiette) daoassiette.getFromId(2));
+		Commande commande1 = ((ICommandeDAO) daocommande).getCommande(lstAssiette);
+		commande1.setPrix(commande1.calculPrix());
 		daoassiette.commit();
+		daocommande.commit();
 		
 		// On vérifie que l'assiette a bien été insérée dans la base
-		System.out.println(daoassiette.getFromId(1));
+		System.out.println(daocommande.getFromId(1));
 	}
 
 }
