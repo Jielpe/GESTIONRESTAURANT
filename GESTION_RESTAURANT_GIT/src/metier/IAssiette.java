@@ -4,9 +4,9 @@ public interface IAssiette {
 
 	public abstract String toString();
 
-	public abstract String getId();
+	public abstract Integer getId();
 
-	public abstract void setId(String id);
+	public abstract void setId(Integer id);
 
 	public abstract String getNom();
 
@@ -19,5 +19,6 @@ public interface IAssiette {
 	public abstract Type getType();
 
 	public abstract void setType(Type type);
+
 
 }

@@ -37,7 +37,7 @@ public class CommandeDAO implements ICommandeDAO {
 	 * Il initialise le contexte de persistance
 	 */
 	public CommandeDAO() {
-		emf = Persistence.createEntityManagerFactory("gestion_restaurant");
+		emf = Persistence.createEntityManagerFactory("gestionrestaurant");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();

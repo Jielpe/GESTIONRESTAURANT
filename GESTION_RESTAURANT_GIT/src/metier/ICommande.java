@@ -6,9 +6,9 @@ public interface ICommande {
 
 	public abstract String toString();
 
-	public abstract String getId();
+	public abstract Integer getId();
 
-	public abstract void setId(String id);
+	public abstract void setId(Integer id);
 
 	public abstract Set<Assiette> getLstAssiette();
 

@@ -4,17 +4,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "assiette")
 public class Assiette implements IAssiette {
 
 	@Id
 	@Column(name = "IDASSIETTE", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+	private Integer id;
 
 	@Column(name = "NOM")
 	protected String nom;
@@ -57,7 +61,7 @@ public class Assiette implements IAssiette {
 	 * @see metier.IAssiette#getId()
 	 */
 	@Override
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -67,7 +71,7 @@ public class Assiette implements IAssiette {
 	 * @see metier.IAssiette#setId(java.lang.String)
 	 */
 	@Override
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -35,7 +35,7 @@ public class AssietteDAO implements IAssietteDAO {
 	 * Il initialise le contexte de persistance
 	 */
 	public AssietteDAO() {
-		emf = Persistence.createEntityManagerFactory("gestion_restaurant");
+		emf = Persistence.createEntityManagerFactory("gestionrestaurant");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();
@@ -48,7 +48,6 @@ public class AssietteDAO implements IAssietteDAO {
 		Assiette a = new Assiette(nom, prix, type);
 		em.persist(a);
 		return a;
-		
 	}
 	
 	
@@ -59,8 +58,7 @@ public class AssietteDAO implements IAssietteDAO {
 	@Override
 	public void commit() {
 		tx.commit();
-		tx.begin();
-		
+		tx.begin();	
 	}
 
 	/**
