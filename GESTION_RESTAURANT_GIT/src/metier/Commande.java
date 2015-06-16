@@ -53,8 +53,8 @@ public class Commande implements ICommande {
 
 	@Override
 	public String toString() {
-		return "Commande [id=" + id + ", lstAssiette=" + lstAssiette
-				+ ", prix=" + prix + "]";
+		return "Commande n°" + id + " : " + lstAssiette
+				+ " : " + prix + "€";
 	}
 
 	/**

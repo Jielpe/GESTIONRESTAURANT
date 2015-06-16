@@ -51,8 +51,7 @@ public class Assiette implements IAssiette {
 	 */
 	@Override
 	public String toString() {
-		return "Assiette [id=" + id + ", nom=" + nom + ", prix=" + prix
-				+ ", type=" + type + "]";
+		return nom;
 	}
 
 	/**
