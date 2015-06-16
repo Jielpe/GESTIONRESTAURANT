@@ -20,5 +20,6 @@ public interface IAssiette {
 
 	public abstract void setType(Type type);
 
+	public void setAll(String nom, double prix, Type type);
 
 }

@@ -1,9 +1,7 @@
 package metier;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -27,7 +25,7 @@ public class Commande implements ICommande {
 
 	@Column(name = "PRIX")
 	protected double prix;
-	
+
 	@Column(name = "STATUT")
 	protected Statut statut;
 
@@ -35,19 +33,22 @@ public class Commande implements ICommande {
 	@JoinTable(name = "commande_assiette", joinColumns = @JoinColumn(name = "IDCOMMANDE"), inverseJoinColumns = @JoinColumn(name = "IDASSIETTE"))
 	private List<Assiette> lstAssiette = new ArrayList<Assiette>();
 
+	/**
+	 * Constructeurs
+	 */
 	public Commande() {
-		super();
+		this.statut = Statut.commandee;
 	}
 
 	public Commande(List<Assiette> lstAssiette) {
 		super();
-	
-		this.lstAssiette=lstAssiette;
-		this.statut=statut.commandée;
+
+		this.lstAssiette = lstAssiette;
+		this.statut = Statut.commandee;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#toString()
+	/**
+	 * Permet d'afficher les attributs d'une commande
 	 */
 
 	@Override
@@ -55,8 +56,13 @@ public class Commande implements ICommande {
 		return "Commande [id=" + id + ", lstAssiette=" + lstAssiette
 				+ ", prix=" + prix + "]";
 	}
-	
-	public double calculPrix(){
+
+	/**
+	 * Calcul le prix d'une commande
+	 * 
+	 * @return prix
+	 */
+	public double calculPrix() {
 		double somme = 0;
 		for (IAssiette current : lstAssiette) {
 			somme = somme + current.getPrix();
@@ -64,55 +70,46 @@ public class Commande implements ICommande {
 		return somme;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#getId()
+	/**
+	 * Permet de définir les attributs de la commande
+	 * 
 	 */
-	@Override
+	public void setAll(List<Assiette> lstAssiette) {
+		this.lstAssiette = lstAssiette;
+		this.prix = calculPrix();
+	}
+
+	/**
+	 * Getters et Setters
+	 */
 	public Integer getId() {
 		return id;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#setId(java.lang.String)
-	 */
 	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#getLstAssiette()
-	 */
 	@Override
 	public List<Assiette> getLstAssiette() {
 		return lstAssiette;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#setLstAssiette(java.util.Set)
-	 */
 	@Override
 	public void setLstAssiette(List<Assiette> lstAssiette) {
 		this.lstAssiette = lstAssiette;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#getPrix()
-	 */
 	@Override
 	public double getPrix() {
 		return prix;
 	}
 
-	/* (non-Javadoc)
-	 * @see metier.ICommande#setPrix(double)
-	 */
 	@Override
 	public void setPrix(double prix) {
 
 		this.prix = prix;
 	}
-
-
 
 }

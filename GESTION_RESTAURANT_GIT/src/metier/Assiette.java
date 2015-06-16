@@ -1,7 +1,7 @@
 package metier;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,8 +30,11 @@ public class Assiette implements IAssiette {
 	protected Type type;
 
 	@ManyToMany(mappedBy = "lstAssiette")
-	private Set<Commande> lstCommande = new HashSet<Commande>();
+	private List<Commande> lstCommande = new ArrayList<Commande>();
 
+	/**
+	 * Constructeurs
+	 */
 	public Assiette() {
 		super();
 	}
@@ -43,93 +46,65 @@ public class Assiette implements IAssiette {
 		this.type = type;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#toString()
+	/**
+	 * Permet d'afficher les attributs d'une assiette
 	 */
-
 	@Override
 	public String toString() {
 		return "Assiette [id=" + id + ", nom=" + nom + ", prix=" + prix
 				+ ", type=" + type + "]";
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Permet de définir les attributs de l'assiette
 	 * 
-	 * @see metier.IAssiette#getId()
+	 */
+
+	public void setAll(String nom, double prix, Type type) {
+		this.nom = nom;
+		this.prix = prix;
+		this.type = type;
+	}
+
+	/**
+	 * Getters et Setters
+	 * 
 	 */
 	@Override
 	public Integer getId() {
 		return id;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#setId(java.lang.String)
-	 */
 	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#getNom()
-	 */
 	@Override
 	public String getNom() {
 		return nom;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#setNom(java.lang.String)
-	 */
 	@Override
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#getPrix()
-	 */
 	@Override
 	public double getPrix() {
 		return prix;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#setPrix(double)
-	 */
 	@Override
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#getType()
-	 */
 	@Override
 	public Type getType() {
 		return type;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see metier.IAssiette#setType(metier.Type)
-	 */
 	@Override
 	public void setType(Type type) {
 		this.type = type;

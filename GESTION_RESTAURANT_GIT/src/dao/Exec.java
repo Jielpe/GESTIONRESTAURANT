@@ -1,43 +1,36 @@
 package dao;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+
+import metier.Commande;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import metier.Assiette;
-import metier.Commande;
-import metier.Type;
-
 public class Exec {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 
-//		DAOFactory df = DAOFactory.getInstance();
-//		IDAO daocommande = df.getDAO(DAO.Commande);
-//		IDAO daoassiette= df.getDAO(DAO.Assiette);
-		
-
 		@SuppressWarnings("resource")
-		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
-		
-		IAssietteDAO daoassiette= (IAssietteDAO) context.getBean("ad");
-		ICommandeDAO daocommande= (ICommandeDAO) context.getBean("cd");
-		
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"ApplicationContext.xml");
+
+		IAssietteDAO daoassiette = (IAssietteDAO) context.getBean("ad");
+		ICommandeDAO daocommande = (ICommandeDAO) context.getBean("cd");
+
 		// On insère une nouvelle assiette dans la base
-		
+		@SuppressWarnings("rawtypes")
 		ArrayList lstAssiette = new ArrayList<>();
-		
-		lstAssiette.add((Assiette) daoassiette.getFromId(4));
-		lstAssiette.add((Assiette) daoassiette.getFromId(3));
-		lstAssiette.add((Assiette) daoassiette.getFromId(3));
-		Commande commande1 = ((ICommandeDAO) daocommande).getCommande(lstAssiette);
-		commande1.setPrix(commande1.calculPrix());
+		Commande commande1 = (Commande) context.getBean("c");
+		lstAssiette.add(daoassiette.getFromId(2));
+		lstAssiette.add(daoassiette.getFromId(6));
+		lstAssiette.add(daoassiette.getFromId(4));
+		commande1.setAll(lstAssiette);
+		daocommande.insert(commande1);
 		daoassiette.commit();
 		daocommande.commit();
-		
+
 		// On vérifie que l'assiette a bien été insérée dans la base
 		System.out.println(daocommande.getFromId(1));
 	}

@@ -1,8 +1,8 @@
 package metier;
 
 public enum Statut {
-	commandée,
-	cuisinée,
-	payée;
+	commandee,
+	cuisinee,
+	payee;
 
 }
